@@ -1,4 +1,5 @@
 package be.heh.application.domain.service;
+
 import be.heh.application.domain.model.Game;
 import be.heh.application.port.out.GameRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,8 +27,8 @@ public class GameServiceTest {
     public void testGetAllGames() {
         // Crée une liste de jeux de test
         List<Game> games = new ArrayList<>();
-        games.add(new Game(1, "Game 1", new String[]{"image1.jpg", "image2.jpg"}));
-        games.add(new Game(2, "Game 2", new String[]{"image3.jpg", "image4.jpg"}));
+        games.add(new Game(1, "Game 1", "image1.jpg", "description"));
+        games.add(new Game(2, "Game 2", "image3.jpg", "description"));
 
         // Configure le comportement du GameRepository mock
         when(gameRepository.getAllGames()).thenReturn(games);
@@ -42,7 +43,7 @@ public class GameServiceTest {
     @Test
     public void testGetGameById() {
         // Crée un jeu de test
-        Game game = new Game(1, "Game 1", new String[]{"image1.jpg", "image2.jpg"});
+        Game game = new Game(1, "Game 1", "image1.jpg", "description");
 
         // Configure le comportement du GameRepository mock
         when(gameRepository.getGameById(1)).thenReturn(game);
@@ -57,13 +58,13 @@ public class GameServiceTest {
     @Test
     public void testCreateGame() {
         // Crée un nouveau jeu de test
-        Game newGame = new Game(0, "New Game", new String[]{"new_image.jpg"});
+        Game newGame = new Game(0, "New Game", "new_image.jpg", "desciption");
 
         // Configure le comportement du GameRepository mock
         when(gameRepository.createGame(any(Game.class))).thenReturn(newGame);
 
         // Appelle la méthode de service
-        Game createdGame = gameService.createGame("New Game", new String[]{"new_image.jpg"});
+        Game createdGame = gameService.createGame("New Game", "new_image.jpg");
 
         // Vérifie que le jeu créé correspond à celui du mock
         assertEquals(newGame, createdGame);
@@ -72,17 +73,17 @@ public class GameServiceTest {
     @Test
     public void testUpdateGame() {
         // Crée un jeu de test existant
-        Game existingGame = new Game(1, "Game 1", new String[]{"image1.jpg", "image2.jpg"});
+        Game existingGame = new Game(1, "Game 1", "image1.jpg","descitpion");
 
         // Configure le comportement du GameRepository mock
         when(gameRepository.getGameById(1)).thenReturn(existingGame);
 
         // Met à jour le jeu existant
-        gameService.updateGame(1, "Updated Game", new String[]{"updated_image.jpg"});
+        gameService.updateGame(1, "Updated Game", "updated_image.jpg");
 
         // Vérifie que le jeu a été mis à jour correctement
         assertEquals("Updated Game", existingGame.getName());
-        assertArrayEquals(new String[]{"updated_image.jpg"}, existingGame.getImages());
+        assertEquals("updated_image.jpg", existingGame.getImages());
         verify(gameRepository).updateGame(existingGame);
     }
 

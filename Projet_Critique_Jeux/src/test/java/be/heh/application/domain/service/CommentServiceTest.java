@@ -29,8 +29,8 @@ public class CommentServiceTest {
     @Test
     public void testCreateComment() {
         // Crée un commentaire de test
-        User author = new User(1, "testuser", "test@test.com", "password");
-        Game game = new Game(1, "Test Game", new String[] {"image1.jpg", "image2.jpg"});
+        User author = new User(1, "testuser",  "password");
+        Game game = new Game(1, "Test Game", "test", "description");
         Comment comment = new Comment(1, game.getId(), "Test comment", 5, author);
 
         // Configure le comportement du CommentRepository mock

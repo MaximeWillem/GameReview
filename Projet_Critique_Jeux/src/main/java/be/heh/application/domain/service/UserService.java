@@ -11,8 +11,8 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public User createUser(String username, String email, String password) {
-        User newUser = new User(0, username, email, password);
+    public User createUser(String username,  String password) {
+        User newUser = new User(0, username, password);
         return userRepository.createUser(newUser);
     }
 

@@ -16,7 +16,7 @@ public class AdaptateurGameControlleurTest {
     @Test
     public void testGetGameById() throws Exception {
         int gameId = 1;
-        Game gameTest = new Game(gameId, "maxime", new String[]{"test"});
+        Game gameTest = new Game(gameId, "maxime", "test", "descrition");
 
         // userServiceMock
         GameService gameServiceTest = Mockito.mock(GameService.class);
@@ -32,6 +32,7 @@ public class AdaptateurGameControlleurTest {
                 .andExpect(jsonPath("$.id").exists())
                 .andExpect(jsonPath("$.id").value(gameId))
                 .andExpect(jsonPath("$.name").value("maxime"))
-                .andExpect(jsonPath("$.images").isArray());
+                .andExpect(jsonPath("$.description").value("description"))
+                .andExpect(jsonPath("$.images").value("test"));
     }
 }

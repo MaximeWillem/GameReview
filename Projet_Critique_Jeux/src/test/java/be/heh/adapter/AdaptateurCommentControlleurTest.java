@@ -19,8 +19,8 @@ public class AdaptateurCommentControlleurTest {
     @Test
     public void testGetGameById() throws Exception {
         int commentId = 1;
-        Game gameTest = new Game(1, "pokemon", new String[]{"test"});
-        User userTest = new User(1, "max", "maxime.willem@std.heh.be", "Test123*");
+        Game gameTest = new Game(1, "pokemon", "test", "description");
+        User userTest = new User(1, "max","Test123*");
         Comment commentTest = new Comment(commentId, gameTest.getId(), "jolie", 3, userTest);
         System.out.println(commentTest.getAuthor());
 

@@ -59,7 +59,7 @@ public class AdaptateurUserController {
     }
     @PostMapping("/users")
     public ResponseEntity<User> createUser(@RequestBody User userData) {
-        User createdUser = userService.createUser(userData.getUsername(), userData.getEmail(), userData.getPassword());
+        User createdUser = userService.createUser(userData.getUsername(), userData.getPassword());
 
         if (createdUser != null) {
             return ResponseEntity

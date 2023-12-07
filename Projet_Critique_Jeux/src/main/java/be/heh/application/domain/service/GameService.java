@@ -21,12 +21,12 @@ public class GameService {
         return gameRepository.getGameById(gameId);
     }
 
-    public Game createGame(String name, String[] images) {
-        Game newGame = new Game(0, name, images);
+    public Game createGame(String name, String images) {
+        Game newGame = new Game(0, name, images,"desciption");
         return gameRepository.createGame(newGame);
     }
 
-    public void updateGame(int gameId, String name, String[] images) {
+    public void updateGame(int gameId, String name,String images) {
         Game existingGame = gameRepository.getGameById(gameId);
         if (existingGame != null) {
             existingGame.setName(name);

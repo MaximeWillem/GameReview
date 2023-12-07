@@ -26,13 +26,13 @@ public class UserServiceTest {
     @Test
     public void testCreateUser() {
         // Crée un utilisateur de test
-        User newUser = new User(1, "testuser", "test@test.com", "password");
+        User newUser = new User(1, "testuser",  "password");
 
         // Configure le comportement du UserRepository mock
         when(userRepository.createUser(any(User.class))).thenReturn(newUser);
 
         // Appelle la méthode de service
-        User createdUser = userService.createUser("testuser", "test@test.com", "password");
+        User createdUser = userService.createUser("testuser",  "password");
 
         // Vérifie que la méthode UserRepository.createUser a été appelée avec les bons paramètres
         verify(userRepository).createUser(any(User.class));
@@ -44,7 +44,7 @@ public class UserServiceTest {
     @Test
     public void testGetUserById() {
         // Crée un utilisateur de test
-        User testUser = new User(1, "testuser", "test@test.com", "password");
+        User testUser = new User(1, "testuser",  "password");
 
         // Configure le comportement du UserRepository mock
         when(userRepository.getUserById(1)).thenReturn(testUser);
@@ -62,7 +62,7 @@ public class UserServiceTest {
     @Test
     public void testGetUserByUsername() {
         // Crée un utilisateur de test
-        User testUser = new User(1, "testuser", "test@test.com", "password");
+        User testUser = new User(1, "testuser",  "password");
 
         // Configure le comportement du UserRepository mock
         when(userRepository.getUserByUsername("testuser")).thenReturn(testUser);
@@ -89,7 +89,7 @@ public class UserServiceTest {
     @Test
     public void testAuthenticateUser() {
         // Crée un utilisateur de test
-        User testUser = new User(1, "testuser", "test@test.com", "password");
+        User testUser = new User(1, "testuser",  "password");
 
         // Configure le comportement du UserRepository mock
         when(userRepository.getUserByUsername("testuser")).thenReturn(testUser);
@@ -104,7 +104,7 @@ public class UserServiceTest {
     @Test
     public void testAuthenticateUserInvalidPassword() {
         // Crée un utilisateur de test
-        User testUser = new User(1, "testuser", "test@test.com", "password");
+        User testUser = new User(1, "testuser",  "password");
 
         // Configure le comportement du UserRepository mock
         when(userRepository.getUserByUsername("testuser")).thenReturn(testUser);

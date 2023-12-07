@@ -23,7 +23,7 @@ public class AdaptateurUserControlleurTest {
         public void testGetUserById() throws Exception {
 
             int userId = 1;
-            User userTest = new User(userId, "maxime", "maxime.willem@std.be", "Test123*");
+            User userTest = new User(userId, "maxime",  "Test123*");
 
             // userServiceMock
             UserService userServiceMock = Mockito.mock(UserService.class);
