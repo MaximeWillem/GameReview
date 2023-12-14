@@ -31,7 +31,7 @@ const GameReview = () => {
           <h3 style={{ marginBottom: '20px', fontSize: '1.5em' }}>Commentaires</h3>
           {/* Ajoutez la liste des commentaires ici si disponible */}
 
-          {/* Formulaire de commentaire */}
+          {/* */}
           <div style={{ display: 'flex', marginBottom: '20px' }}>
             <input type="text" placeholder="Ajouter un commentaire" required style={{ flex: 1, padding: '8px', marginRight: '10px', fontSize: '1em' }} />
             <button style={{ background: '#61dafb', color: '#fff', border: 'none', padding: '8px 15px', cursor: 'pointer', fontSize: '1em' }}>Envoyer</button>
